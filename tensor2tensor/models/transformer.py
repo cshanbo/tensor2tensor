@@ -287,6 +287,7 @@ def transformer_base():
   hparams.num_sampled_classes = 0
   hparams.label_smoothing = 0.1
   hparams.shared_embedding_and_softmax_weights = int(True)
+  hparams.shared_source_and_target_vocabs = int(True)
 
   hparams.add_hparam("filter_size", 2048)  # Add new ones like this.
   # attention-related flags

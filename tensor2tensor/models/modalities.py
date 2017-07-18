@@ -84,14 +84,17 @@ class SymbolModality(modality.Modality):
       return ret
 
   def bottom(self, x):
-    if self._model_hparams.shared_embedding_and_softmax_weights:
+    if self._model_hparams.shared_source_and_target_vocabs:
       return self.bottom_simple(x, "shared", reuse=None)
     else:
       return self.bottom_simple(x, "input_emb", reuse=None)
 
   def targets_bottom(self, x):
     if self._model_hparams.shared_embedding_and_softmax_weights:
-      return self.bottom_simple(x, "shared", reuse=True)
+      if self._model_hparams.shared_source_and_target_vocabs:
+        return self.bottom_simple(x, "shared", reuse=True)
+      else:
+        return self.bottom_simple(x, "shared", reuse=None)
     else:
       return self.bottom_simple(x, "target_emb", reuse=None)
 

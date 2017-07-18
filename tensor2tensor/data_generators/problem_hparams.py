@@ -460,8 +460,8 @@ def wmt_zhen_tokens(model_hparams, wrong_vocab_size):
   """Chinese to English translation benchmark."""
   p = default_problem_hparams()
   # This vocab file must be present within the data directory.
-  if model_hparams.shared_embedding_and_softmax_weights == 1:
-    model_hparams.shared_embedding_and_softmax_weights = 0
+  if model_hparams.shared_source_and_target_vocabs == 1:
+    model_hparams.shared_source_and_target_vocabs = 0
   source_vocab_filename = os.path.join(model_hparams.data_dir,
                                        "tokens.vocab.zh.%d" % wrong_vocab_size)
   target_vocab_filename = os.path.join(model_hparams.data_dir,

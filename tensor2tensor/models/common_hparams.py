@@ -78,6 +78,7 @@ def basic_params1():
       # by using a problem_hparams that uses the same modality object for
       # the input_modality and target_modality.
       shared_embedding_and_softmax_weights=int(False),
+      shared_source_and_target_vocabs=int(False),
       # For each feature for which you want to override the default input
       # modality, add an entry to this semicolon-separated string. Entries are
       # formatted "feature_name:modality_type:modality_name", e.g.
